@@ -11,6 +11,8 @@ pipeline {
     sh './gradlew build'
   }
 }
+        }
+    
             }
         }
         stage('Build Docker Image') {
