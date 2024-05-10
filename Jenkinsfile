@@ -7,9 +7,10 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Running build automation'
-                sh './gradlew build --no-daemon --scan'
-                archiveArtifacts artifacts: 'dist/trainSchedule.zip'
+                withGradle {
+    sh './gradlew build'
+  }
+}
             }
         }
         stage('Build Docker Image') {
