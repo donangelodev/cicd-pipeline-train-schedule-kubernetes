@@ -7,8 +7,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                withGradle {
-    sh './gradlew build'
+                withMaven {
+    sh './maven build'
   }
 }
         }
