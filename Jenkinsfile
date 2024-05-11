@@ -6,11 +6,12 @@ pipeline {
     }
     stages {
         stage('Build') {
-            steps {
-                withMaven {
-    sh './maven build'
-  }
-}
+                        steps {
+                echo 'Running build automation'
+                sh './gradlew build --no-daemon --scan'
+                archiveArtifacts artifacts: 'dist/trainSchedule.zip'
+            }
+        }
         }
         stage('Build Docker Image') {
             when {
